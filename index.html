@@ -1,60 +1,768 @@
-<form
-  action="https://formspree.io/f/mgavrvgv"
-  method="POST"
-  class="contact-form"
->
-  <div class="form-group">
-    <label for="name">Ad Soyad</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Adını ve soyadını yaz"
-      required
-    />
-  </div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Violet Studio - Modern web, marka, sosyal medya ve UI/UX tasarım hizmetleri.">
+  <title>Violet Studio — Creative Design</title>
 
-  <div class="form-group">
-    <label for="email">E-posta</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="ornek@mail.com"
-      required
-    />
-  </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <div class="form-group">
-    <label for="project">Proje Türü</label>
-    <select id="project" name="project" required>
-      <option value="">Seçiniz</option>
-      <option value="Web Tasarım">Web Tasarım</option>
-      <option value="Logo / Marka">Logo / Marka</option>
-      <option value="Sosyal Medya">Sosyal Medya</option>
-      <option value="UI/UX">UI/UX Tasarım</option>
-      <option value="Diğer">Diğer</option>
-    </select>
-  </div>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <div class="form-group">
-    <label for="message">Projen</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      placeholder="Projen hakkında biraz bahset..."
-      required
-    ></textarea>
-  </div>
+<body>
 
-  <input
-    type="hidden"
-    name="_subject"
-    value="Violet Studio - Yeni Proje Talebi"
-  />
+  <div class="noise"></div>
 
-  <button type="submit" class="btn btn-primary">
-    Projeyi Gönder →
-  </button>
-</form>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <span class="logo-mark">V</span>
+      <span>Violet<span>Studio</span></span>
+    </a>
+
+    <nav id="navMenu">
+      <a href="#services">Hizmetler</a>
+      <a href="#work">Projeler</a>
+      <a href="#about">Hakkımızda</a>
+      <a href="#roadmap">Gelişim</a>
+      <a href="#opportunities">Fırsatlar</a>
+      <a href="#contact" class="nav-contact">Proje Başlat →</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+
+      <div class="hero-content">
+
+        <div class="badge">
+          <span class="pulse"></span>
+          Yeni nesil dijital tasarım stüdyosu
+        </div>
+
+        <h1>
+          Fikirlerini
+          <span>etkileyici</span>
+          dijital deneyimlere dönüştürüyoruz.
+        </h1>
+
+        <p>
+          Web sitesi, marka kimliği, sosyal medya ve UI/UX tasarımlarını
+          modern, hızlı ve dikkat çekici şekilde tasarlıyoruz.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            Projeni Başlat <span>→</span>
+          </a>
+
+          <a href="#work" class="btn btn-secondary">
+            Çalışmaları Gör
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>∞</strong>
+            <span>Yaratıcı fikir</span>
+          </div>
+
+          <div>
+            <strong>24/7</strong>
+            <span>Dijital dünya</span>
+          </div>
+
+          <div>
+            <strong>01</strong>
+            <span>Hedef: senin projen</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="card-top">
+          <span>VIOLET / 2026</span>
+          <span>● LIVE</span>
+        </div>
+
+        <div class="visual-orb">
+          <div class="orb-inner"></div>
+          <div class="orb-ring ring-one"></div>
+          <div class="orb-ring ring-two"></div>
+        </div>
+
+        <div class="floating-card card-a">
+          <span>✦</span>
+          Creative
+        </div>
+
+        <div class="floating-card card-b">
+          <span>◈</span>
+          Digital
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+
+      <div class="section-heading">
+        <span class="eyebrow">01 / HİZMETLER</span>
+
+        <h2>
+          Markanı dijitalde
+          <span>bir üst seviyeye</span>
+          taşıyalım.
+        </h2>
+
+        <p>
+          İhtiyacın olan tasarım hizmetlerini tek bir yerde topluyoruz.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card featured">
+          <div class="service-icon">◉</div>
+          <span class="service-number">01</span>
+
+          <h3>Web Tasarım</h3>
+
+          <p>
+            Modern, responsive, hızlı ve markana özel web siteleri.
+            Kullanıcı deneyimini ve görsel kaliteyi birlikte düşünürüz.
+          </p>
+
+          <div class="service-tags">
+            <span>Landing Page</span>
+            <span>Kurumsal</span>
+            <span>E-Ticaret</span>
+          </div>
+
+          <a href="#contact">Detaylı Bilgi →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✦</div>
+          <span class="service-number">02</span>
+
+          <h3>Logo & Marka</h3>
+
+          <p>
+            Markanın karakterini yansıtan logo, renk paleti, tipografi
+            ve görsel kimlik tasarımları.
+          </p>
+
+          <div class="service-tags">
+            <span>Logo</span>
+            <span>Branding</span>
+            <span>Kimlik</span>
+          </div>
+
+          <a href="#contact">Detaylı Bilgi →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">◎</div>
+          <span class="service-number">03</span>
+
+          <h3>Sosyal Medya</h3>
+
+          <p>
+            Instagram, TikTok ve diğer platformlar için dikkat çekici
+            gönderi, hikâye ve kampanya tasarımları.
+          </p>
+
+          <div class="service-tags">
+            <span>Post</span>
+            <span>Story</span>
+            <span>Reklam</span>
+          </div>
+
+          <a href="#contact">Detaylı Bilgi →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⌁</div>
+          <span class="service-number">04</span>
+
+          <h3>UI / UX</h3>
+
+          <p>
+            Uygulama ve web projeleri için kullanıcı odaklı arayüzler
+            ve akıcı kullanıcı deneyimleri.
+          </p>
+
+          <div class="service-tags">
+            <span>UI</span>
+            <span>UX</span>
+            <span>Prototype</span>
+          </div>
+
+          <a href="#contact">Detaylı Bilgi →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">◆</div>
+          <span class="service-number">05</span>
+
+          <h3>Özel Tasarım</h3>
+
+          <p>
+            Standart hizmetlerin dışında özel bir fikrin varsa,
+            projeyi beraber şekillendirebiliriz.
+          </p>
+
+          <div class="service-tags">
+            <span>Özel Proje</span>
+            <span>Fikir</span>
+            <span>Konsept</span>
+          </div>
+
+          <a href="#contact">Fikrini Anlat →</a>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="section process-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">02 / SÜREÇ</span>
+        <h2>Fikirden <span>sonuca.</span></h2>
+        <p>
+          Projeyi karmaşıklaştırmadan adım adım ilerliyoruz.
+        </p>
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-item">
+          <span>01</span>
+          <h3>Fikri Dinle</h3>
+          <p>Ne yapmak istediğini öğreniyoruz.</p>
+        </div>
+
+        <div class="process-line"></div>
+
+        <div class="process-item">
+          <span>02</span>
+          <h3>Tasarımı Kur</h3>
+          <p>Fikri görsel bir sisteme dönüştürüyoruz.</p>
+        </div>
+
+        <div class="process-line"></div>
+
+        <div class="process-item">
+          <span>03</span>
+          <h3>Geliştir</h3>
+          <p>Projeyi kullanılabilir hale getiriyoruz.</p>
+        </div>
+
+        <div class="process-line"></div>
+
+        <div class="process-item">
+          <span>04</span>
+          <h3>Yayınla</h3>
+          <p>Son kontrolleri yapıp projeyi teslim ediyoruz.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WORK -->
+    <section class="section" id="work">
+
+      <div class="section-heading split-heading">
+        <div>
+          <span class="eyebrow">03 / PROJELER</span>
+          <h2>Hayal et.<br><span>Tasarlayalım.</span></h2>
+        </div>
+
+        <p>
+          Henüz portföyümüzü sürekli büyütüyoruz.
+          Burada gelecekteki çalışmalarımızı görebileceksin.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card project-large">
+          <div class="project-visual visual-purple">
+            <span>VIOLET</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <span>WEB DESIGN</span>
+              <h3>Modern Digital Experience</h3>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual visual-dark">
+            <span>BRAND</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <span>BRANDING</span>
+              <h3>Future Identity</h3>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual visual-grid">
+            <span>SOCIAL</span>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <span>SOCIAL MEDIA</span>
+              <h3>Social Campaign</h3>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+      <div class="search-box">
+
+        <div class="search-content">
+          <span class="eyebrow">İLHAM MERKEZİ</span>
+
+          <h2>
+            Benzer projeleri
+            <span>keşfet.</span>
+          </h2>
+
+          <p>
+            Aklındaki tasarım tarzını yaz. İnternette benzer örnekleri
+            ve ilham kaynaklarını yeni sekmede açalım.
+          </p>
+
+          <div class="search-form">
+            <input
+              id="inspirationQuery"
+              type="text"
+              placeholder="Örn: modern siyah mor web sitesi"
+            >
+
+            <button id="searchBtn" class="btn btn-primary">
+              Ara ↗
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+
+      <div class="about-visual">
+        <div class="about-number">VS</div>
+        <div class="about-circle"></div>
+      </div>
+
+      <div class="about-content">
+
+        <span class="eyebrow">04 / HAKKIMIZDA</span>
+
+        <h2>
+          Sadece güzel değil,
+          <span>işe yarayan</span>
+          tasarımlar.
+        </h2>
+
+        <p>
+          Violet Studio, dijital dünyada kendini göstermek isteyen
+          markalar ve bireysel girişimler için tasarım odaklı bir
+          çalışma alanıdır.
+        </p>
+
+        <p>
+          Amacımız sadece ekrana güzel bir şey koymak değil;
+          ziyaretçinin dikkatini çekmek, markanın karakterini yansıtmak
+          ve kullanıcıya anlaşılır bir deneyim sunmaktır.
+        </p>
+
+        <p>
+          Sürekli gelişen teknolojileri ve yeni tasarım trendlerini
+          takip ederek zamanla daha kapsamlı hizmetler sunmayı
+          hedefliyoruz.
+        </p>
+
+        <div class="about-points">
+          <div>
+            <span>✓</span>
+            Modern tasarım
+          </div>
+
+          <div>
+            <span>✓</span>
+            Mobil uyumluluk
+          </div>
+
+          <div>
+            <span>✓</span>
+            Kullanıcı odaklı yaklaşım
+          </div>
+
+          <div>
+            <span>✓</span>
+            Sürekli gelişim
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ROADMAP -->
+    <section class="section roadmap-section" id="roadmap">
+
+      <div class="section-heading">
+        <span class="eyebrow">05 / GELİŞİM HALİNDEYİZ</span>
+
+        <h2>
+          Daha yeni
+          <span>başlıyoruz.</span>
+        </h2>
+
+        <p>
+          Violet Studio'nun gelecekte eklemeyi planladığı özellikler.
+        </p>
+      </div>
+
+      <div class="roadmap">
+
+        <div class="roadmap-item done">
+          <div class="roadmap-dot">✓</div>
+
+          <div>
+            <span>HAZIR</span>
+            <h3>Modern Web Tasarımı</h3>
+            <p>Responsive ve modern tasarım altyapısı.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item active">
+          <div class="roadmap-dot">02</div>
+
+          <div>
+            <span>GELİŞTİRİLİYOR</span>
+            <h3>Daha Gelişmiş Proje Sistemi</h3>
+            <p>Müşterilerin proje detaylarını daha kolay yönetebilmesi.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-dot">03</div>
+
+          <div>
+            <span>GELECEK</span>
+            <h3>Müşteri Paneli</h3>
+            <p>Projelerin durumunu tek panelden takip edebilme.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-dot">04</div>
+
+          <div>
+            <span>GELECEK</span>
+            <h3>Otomatik Teklif Sistemi</h3>
+            <p>Proje ihtiyaçlarına göre daha hızlı teklif oluşturma.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- OPPORTUNITIES -->
+    <section class="section opportunities" id="opportunities">
+
+      <div class="section-heading">
+        <span class="eyebrow">06 / FIRSATLAR</span>
+
+        <h2>
+          Birlikte bir şeyler
+          <span>üretelim.</span>
+        </h2>
+
+        <p>
+          Yeni projeler, yaratıcı fikirler ve iş birlikleri için kapımız açık.
+        </p>
+      </div>
+
+      <div class="opportunity-grid">
+
+        <div class="opportunity-card">
+          <span class="opportunity-icon">⚡</span>
+          <h3>Yeni Projeler</h3>
+          <p>
+            Web sitesi, marka veya sosyal medya projen varsa
+            doğrudan bize anlatabilirsin.
+          </p>
+          <a href="#contact">Proje Gönder →</a>
+        </div>
+
+        <div class="opportunity-card">
+          <span class="opportunity-icon">✦</span>
+          <h3>İş Birlikleri</h3>
+          <p>
+            Tasarımcı, geliştirici veya içerik üreticisiysen
+            birlikte çalışabileceğimiz projeler olabilir.
+          </p>
+          <a href="#contact">İletişime Geç →</a>
+        </div>
+
+        <div class="opportunity-card">
+          <span class="opportunity-icon">◆</span>
+          <h3>Özel Fikirler</h3>
+          <p>
+            Standart bir hizmet aramıyorsan fikrini anlat.
+            Projeyi beraber şekillendirelim.
+          </p>
+          <a href="#contact">Fikrini Anlat →</a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+
+      <div class="contact-intro">
+
+        <span class="eyebrow">07 / İLETİŞİM</span>
+
+        <h2>
+          Bir fikrin mi var?
+          <span>Konuşalım.</span>
+        </h2>
+
+        <p>
+          Projen hakkında birkaç bilgi bırak.
+          Mesajın bize ulaşsın, ardından detayları konuşalım.
+        </p>
+
+        <div class="contact-details">
+
+          <div>
+            <span>✉</span>
+            <div>
+              <small>E-POSTA</small>
+              <strong>doganberayucel@gmail.com</strong>
+            </div>
+          </div>
+
+          <div>
+            <span>◉</span>
+            <div>
+              <small>PROJE DURUMU</small>
+              <strong>Yeni projelere açığız</strong>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FORMSPREE -->
+      <form
+        action="https://formspree.io/f/mgavrvgv"
+        method="POST"
+        class="contact-form"
+      >
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="name">Ad Soyad</label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Adını ve soyadını yaz"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-posta</label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="ornek@mail.com"
+              required
+            >
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="project">Proje Türü</label>
+
+          <select
+            id="project"
+            name="project"
+            required
+          >
+            <option value="">Proje türünü seç</option>
+            <option value="Web Tasarım">Web Tasarım</option>
+            <option value="Logo / Marka">Logo / Marka</option>
+            <option value="Sosyal Medya">Sosyal Medya</option>
+            <option value="UI/UX">UI / UX</option>
+            <option value="Özel Proje">Özel Proje</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="budget">Tahmini Bütçe</label>
+
+          <select id="budget" name="budget">
+
+            <option value="">Belirtmek istemiyorum</option>
+            <option value="Belirsiz">Henüz belli değil</option>
+            <option value="Düşük">Düşük</option>
+            <option value="Orta">Orta</option>
+            <option value="Yüksek">Yüksek</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">Projen</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="7"
+            placeholder="Ne yapmak istiyorsun? Projeni anlat..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="Violet Studio - Yeni Proje Talebi"
+        >
+
+        <button type="submit" class="btn btn-primary submit-btn">
+          Projeyi Gönder <span>→</span>
+        </button>
+
+        <p class="form-note">
+          Gönderdiğin bilgiler proje değerlendirmesi için kullanılacaktır.
+        </p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-main">
+
+      <div>
+        <a href="#home" class="logo">
+          <span class="logo-mark">V</span>
+          <span>Violet<span>Studio</span></span>
+        </a>
+
+        <p>
+          Ideas into digital experiences.
+        </p>
+      </div>
+
+      <div class="footer-links">
+
+        <div>
+          <strong>MENÜ</strong>
+          <a href="#services">Hizmetler</a>
+          <a href="#work">Projeler</a>
+          <a href="#about">Hakkımızda</a>
+          <a href="#contact">İletişim</a>
+        </div>
+
+        <div>
+          <strong>PROJE</strong>
+          <a href="#contact">Web Tasarım</a>
+          <a href="#contact">Marka Tasarımı</a>
+          <a href="#contact">UI / UX</a>
+          <a href="#contact">Özel Proje</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Violet Studio</span>
+      <span>Designed with ✦</span>
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
