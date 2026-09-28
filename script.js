@@ -1,335 +1,174 @@
 /* =========================
-   VIOLET STUDIO
-   ========================= */
+   MOBILE MENU
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+if (menuBtn && navMenu) {
+
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+
+    menuBtn.textContent =
+      navMenu.classList.contains("open")
+        ? "✕"
+        : "☰";
+  });
 
 
-/* MOBILE MENU */
+  navMenu.querySelectorAll("a").forEach(link => {
 
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
+    link.addEventListener("click", () => {
 
-if (menuButton && mobileMenu) {
+      navMenu.classList.remove("open");
 
-    menuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-
-        menuButton.textContent =
-            mobileMenu.classList.contains("open") ? "×" : "☰";
-    });
-
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mobileMenu.classList.remove("open");
-            menuButton.textContent = "☰";
-
-        });
-
-    });
-}
-
-
-/* NAVBAR */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 30) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
-});
-
-
-/* CURSOR GLOW */
-
-const cursorGlow = document.querySelector(".cursor-glow");
-
-if (cursorGlow && window.innerWidth > 800) {
-
-    document.addEventListener("mousemove", event => {
-
-        cursorGlow.style.left = event.clientX + "px";
-        cursorGlow.style.top = event.clientY + "px";
+      menuBtn.textContent = "☰";
 
     });
+
+  });
 
 }
 
 
-/* SCROLL REVEAL */
+/* =========================
+   CURRENT YEAR
+========================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const year = document.getElementById("year");
 
-const revealObserver = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                revealObserver.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.12
-    }
-);
-
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
 
-/* INSPIRATION SEARCH */
+/* =========================
+   INSPIRATION SEARCH
+========================= */
 
-const inspirationInput =
-    document.getElementById("inspirationInput");
+const searchBtn = document.getElementById("searchBtn");
+const inspirationQuery = document.getElementById("inspirationQuery");
 
-const searchButton =
-    document.getElementById("searchButton");
+function searchInspiration() {
 
-function searchInternet(query) {
+  const query = inspirationQuery.value.trim();
 
-    const cleanQuery = query.trim();
+  if (!query) {
 
-    if (!cleanQuery) {
+    inspirationQuery.focus();
 
-        showToast("Önce ne aramak istediğini yaz.");
+    return;
+  }
 
-        inspirationInput.focus();
+  const searchText =
+    `${query} web design inspiration`;
 
-        return;
-    }
+  const url =
+    `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(searchText)}`;
 
-    const googleUrl =
-        "https://www.google.com/search?q=" +
-        encodeURIComponent(cleanQuery + " design inspiration");
-
-    window.open(googleUrl, "_blank", "noopener,noreferrer");
+  window.open(url, "_blank");
 
 }
 
 
-if (searchButton) {
+if (searchBtn) {
 
-    searchButton.addEventListener("click", () => {
-
-        searchInternet(inspirationInput.value);
-
-    });
-
-}
-
-
-if (inspirationInput) {
-
-    inspirationInput.addEventListener("keydown", event => {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            searchInternet(inspirationInput.value);
-
-        }
-
-    });
+  searchBtn.addEventListener(
+    "click",
+    searchInspiration
+  );
 
 }
 
 
-/* QUICK SEARCH */
+if (inspirationQuery) {
 
-document.querySelectorAll(".quick-searches button")
-    .forEach(button => {
+  inspirationQuery.addEventListener(
+    "keydown",
+    event => {
 
-        button.addEventListener("click", () => {
-
-            searchInternet(button.dataset.search);
-
-        });
-
-    });
-
-
-/* FORM */
-
-const projectForm =
-    document.getElementById("projectForm");
-
-const formStatus =
-    document.getElementById("formStatus");
-
-if (projectForm) {
-
-    projectForm.addEventListener("submit", async event => {
+      if (event.key === "Enter") {
 
         event.preventDefault();
 
-        const submitButton =
-            projectForm.querySelector(".form-submit");
+        searchInspiration();
 
-        const originalText =
-            submitButton.innerHTML;
+      }
 
-        submitButton.disabled = true;
+    }
+  );
 
-        submitButton.innerHTML =
-            "Gönderiliyor...";
+}
 
-        formStatus.textContent = "";
 
-        try {
+/* =========================
+   SCROLL REVEAL
+========================= */
 
-            const response = await fetch(
-                projectForm.action,
-                {
-                    method: "POST",
-                    body: new FormData(projectForm),
-                    headers: {
-                        "Accept": "application/json"
-                    }
-                }
-            );
+const revealElements = document.querySelectorAll(
+  ".service-card, .project-card, .opportunity-card, .roadmap-item, .process-item"
+);
 
-            if (response.ok) {
 
-                projectForm.reset();
+const observer = new IntersectionObserver(
+  entries => {
 
-                formStatus.textContent =
-                    "Proje talebin başarıyla gönderildi. ✓";
+    entries.forEach(entry => {
 
-                showToast(
-                    "Proje talebin başarıyla gönderildi."
-                );
+      if (entry.isIntersecting) {
 
-            } else {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
 
-                let data = {};
+        observer.unobserve(entry.target);
 
-                try {
-                    data = await response.json();
-                } catch (error) {}
-
-                if (data.errors) {
-
-                    formStatus.textContent =
-                        data.errors
-                            .map(error => error.message)
-                            .join(", ");
-
-                } else {
-
-                    formStatus.textContent =
-                        "Gönderim sırasında bir sorun oluştu.";
-
-                }
-
-            }
-
-        } catch (error) {
-
-            formStatus.textContent =
-                "İnternet bağlantısını kontrol edip tekrar dene.";
-
-        } finally {
-
-            submitButton.disabled = false;
-
-            submitButton.innerHTML =
-                originalText;
-
-        }
+      }
 
     });
 
-}
+  },
+  {
+    threshold: 0.08
+  }
+);
 
 
-/* TOAST */
+revealElements.forEach(element => {
 
-const toast =
-    document.getElementById("toast");
+  element.style.opacity = "0";
+  element.style.transform = "translateY(20px)";
+  element.style.transition =
+    "opacity .6s ease, transform .6s ease";
 
-let toastTimeout;
+  observer.observe(element);
 
-function showToast(message) {
-
-    if (!toast) return;
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimeout);
-
-    toastTimeout = setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    }, 3500);
-
-}
+});
 
 
-/* CURRENT YEAR */
+/* =========================
+   SMOOTH NAVIGATION
+========================= */
 
-const year =
-    document.getElementById("year");
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-if (year) {
+  link.addEventListener("click", event => {
 
-    year.textContent =
-        new Date().getFullYear();
+    const targetId =
+      link.getAttribute("href");
 
-}
+    const target =
+      document.querySelector(targetId);
 
+    if (!target) return;
 
-/* SERVICE CARDS MICRO EFFECT */
+    event.preventDefault();
 
-document.querySelectorAll(".service-card")
-    .forEach(card => {
-
-        card.addEventListener("mousemove", event => {
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const rotateX =
-                ((y / rect.height) - 0.5) * -4;
-
-            const rotateY =
-                ((x / rect.width) - 0.5) * 4;
-
-            card.style.transform =
-                `perspective(700px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-5px)`;
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform = "";
-
-        });
-
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
+
+  });
+
+});
